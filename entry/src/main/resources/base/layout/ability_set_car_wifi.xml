@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DependentLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:background_element="$media:bjimg">
+
+    <Component
+        ohos:top_margin="180vp"
+        ohos:height="300vp"
+        ohos:width="330vp"
+        ohos:horizontal_center="true"
+        ohos:background_element="$media:mubanbg"
+        />
+
+    <TextField
+        ohos:id="$+id:wf_name_textfield"
+        ohos:height="40vp"
+        ohos:width="250vp"
+        ohos:layout_alignment="horizontal_center"
+        ohos:top_margin="250vp"
+        ohos:text_size="20fp"
+        ohos:text_alignment="vertical_center"
+        ohos:background_element="$graphic:background_white_radius_10"
+        ohos:left_padding="10vp"
+        ohos:horizontal_center="true"
+        ohos:hint="wifi名字"
+        ohos:hint_color="#ccc"
+        ohos:text_color="#333"
+        />
+    <TextField
+        ohos:below="$id:wf_name_textfield"
+        ohos:id="$+id:wf_passwd_textfield"
+        ohos:height="40vp"
+        ohos:width="250vp"
+        ohos:horizontal_center="true"
+        ohos:top_margin="20vp"
+        ohos:text_size="20fp"
+        ohos:text_alignment="vertical_center"
+        ohos:background_element="$graphic:background_white_radius_10"
+        ohos:left_padding="10vp"
+        ohos:hint="wifi密码"
+        ohos:hint_color="#ccc"
+        ohos:text_color="#333"
+        />
+    <Button
+        ohos:below="$id:wf_passwd_textfield"
+        ohos:id="$+id:send_wf_msg_btn"
+        ohos:height="55vp"
+        ohos:width="110vp"
+        ohos:background_element="$media:choosebtnbg"
+        ohos:top_margin="20vp"
+        ohos:text="确认"
+        ohos:text_size="18fp"
+        ohos:horizontal_center="true"
+        ohos:text_color="#fff"
+        />
+
+</DependentLayout>

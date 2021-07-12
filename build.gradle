@@ -1,0 +1,57 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply plugin: 'com.huawei.ohos.app'
+
+ohos {
+    signingConfigs {
+        debug {
+            storeFile file('C:\\Users\\32530\\.ohos\\config\\auto_debug_70086200301261779.p12')
+            storePassword '00000018826E9593EECE504CF716F873AC0C99738DF90D63AFAE4942A16B99A549309FC11F279ED6'
+            keyAlias = 'debugKey'
+            keyPassword '00000018D46DE68FEFB5F8754F0B03D88070E939AEE322C5DA51B11B95659C67357234E9E4A8866E'
+            signAlg = 'SHA256withECDSA'
+            profile file('C:\\Users\\32530\\.ohos\\config\\auto_debug_greenfruit_70086200301261779.p7b')
+            certpath file('C:\\Users\\32530\\.ohos\\config\\auto_debug_70086200301261779.cer')
+        }
+        release {
+            storeFile file('C:\\Users\\32530\\.ohos\\config\\auto_debug_70086200301261779.p12')
+            storePassword '000000207BC40564376236EB1A572F48F3191DD8FAEDE76F420B85DACAE3859426E22893E0E4DBD10FEA0FD8D848982A'
+            keyAlias = 'debugKey'
+            keyPassword '00000020E06201AE834123FE0F1E7EA6BAFBE4A14C32847A91BD9FBAEA4661835DD39CC0E4E85FB4625D1C16DE9A7182'
+            signAlg = 'SHA256withECDSA'
+            profile file('C:\\Users\\32530\\.ohos\\config\\auto_debug_greenfruit_70086200301261779.p7b')
+            certpath file('C:\\Users\\32530\\.ohos\\config\\auto_debug_70086200301261779.cer')
+        }
+    }
+    compileSdkVersion 5
+    defaultConfig {
+        compatibleSdkVersion 5
+    }
+}
+
+buildscript {
+    repositories {
+        maven {
+            url 'https://repo.huaweicloud.com/repository/maven/'
+        }
+        maven {
+            url 'https://developer.huawei.com/repo/'
+        }
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.huawei.ohos:hap:2.4.5.0'
+        classpath 'com.huawei.ohos:decctest:1.2.4.1'
+    }
+}
+
+allprojects {
+    repositories {
+        maven {
+            url 'https://repo.huaweicloud.com/repository/maven/'
+        }
+        maven {
+            url 'https://developer.huawei.com/repo/'
+        }
+        jcenter()
+    }
+}

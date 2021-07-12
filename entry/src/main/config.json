@@ -1,0 +1,169 @@
+{
+  "app": {
+    "type": "normal",
+    "bundleName": "com.example.greenfruit",
+    "vendor": "example",
+    "version": {
+      "code": 1000001,
+      "name": "1.0.1"
+    },
+    "apiVersion": {
+      "target": 5,
+      "compatible": 4,
+      "releaseType": "Beta1"
+
+
+
+
+    }
+  },
+  "deviceConfig": {},
+  "module": {
+    "package": "com.example.greenfruit",
+    "name": ".MyApplication",
+    "deviceType": [
+      "phone"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "entry",
+      "moduleType": "entry"
+    },
+    "abilities": [
+      {
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home"
+            ],
+            "actions": [
+              "action.system.home"
+            ]
+          }
+        ],
+        "orientation": "unspecified",
+        "name": "com.example.greenfruit.MainAbility",
+        "icon": "$media:icon",
+        "description": "$string:mainability_description",
+        "label": "$string:app_name",
+        "type": "page",
+        "launchType": "standard",
+        "visible": true,
+        "metaData": {
+          "customizeData": [
+            {
+              "name": "hwc-theme",
+              "value": "androidhwext:style/Theme.Emui.Light.NoTitleBar",
+              "extra": ""
+            }
+          ]
+        }
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.example.greenfruit.CtrlCarAbility",
+        "icon": "$media:icon",
+        "description": "$string:ctrlcarability_description",
+        "label": "$string:app_name",
+        "type": "page",
+        "launchType": "standard",
+        "metaData": {
+          "customizeData": [
+            {
+              "name": "hwc-theme",
+              "value": "androidhwext:style/Theme.Emui.Light.NoTitleBar",
+              "extra": ""
+            }
+          ]
+        }
+      },
+      {
+        "orientation": "landscape",
+        "name": "com.example.greenfruit.CarHandleAbility",
+        "icon": "$media:icon",
+        "description": "$string:carhandleability_description",
+        "label": "$string:app_name",
+        "type": "page",
+
+        "launchType": "standard",
+        "metaData": {
+          "customizeData": [
+            {
+              "name": "hwc-theme",
+              "value": "androidhwext:style/Theme.Emui.Light.NoTitleBar",
+              "extra": ""
+            }
+          ]
+        }
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.example.greenfruit.SetCarWifiAbility",
+        "icon": "$media:icon",
+        "description": "$string:setcarwifiability_description",
+        "label": "$string:app_name",
+        "type": "page",
+        "launchType": "standard",
+        "metaData": {
+          "customizeData": [
+            {
+              "name": "hwc-theme",
+              "value": "androidhwext:style/Theme.Emui.Light.NoTitleBar",
+              "extra": ""
+            }
+          ]
+        }
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.example.greenfruit.ChooseCarAbility",
+        "icon": "$media:icon",
+        "description": "$string:choosecarability_description",
+        "label": "$string:app_name",
+        "type": "page",
+        "launchType": "standard",
+        "metaData": {
+          "customizeData": [
+            {
+              "name": "hwc-theme",
+              "value": "androidhwext:style/Theme.Emui.Light.NoTitleBar",
+              "extra": ""
+            }
+          ]
+        }
+      },
+      {
+        "name": "com.example.greenfruit.BJmusicServiceAbility",
+        "icon": "$media:icon",
+        "description": "$string:bjmusicserviceability_description",
+        "type": "service"
+      }
+    ],
+    "reqPermissions": [
+      {
+        "name": "ohos.permission.INTERNET"
+      },
+      {
+        "name": "ohos.permission.READ_MEDIA"
+      },
+      {
+        "name": "ohos.permission.WRITE_MEDIA"
+      },
+      {
+        "name": "ohos.permission.DISTRIBUTED_DATASYNC"
+      },
+      {
+        "name": "ohos.permission.DISTRIBUTED_DEVICE_STATE_CHANGE"
+      },
+      {
+        "name": "ohos.permission.GET_DISTRIBUTED_DEVICE_INFO"
+      },
+      {
+        "name": "ohos.permission.GET_BUNDLE_INFO"
+      },
+      {
+        "name": "ohos.permission.GET_WIFI_INFO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "string": [
+    {
+      "name": "app_name",
+      "value": "绿小果"
+    },
+    {
+      "name": "mainability_description",
+      "value": "Java_Phone_Empty Feature Ability"
+    },
+    {
+      "name": "ctrlcarability_description",
+      "value": "Java_Phone_Empty Feature Ability"
+    },
+    {
+      "name": "carhandleability_description",
+      "value": "Java_Phone_Empty Feature Ability"
+    },
+    {
+      "name": "setcarwifiability_description",
+      "value": "Java_Phone_Empty Feature Ability"
+    },
+    {
+      "name": "choosecarability_description",
+      "value": "Java_Phone_Empty Feature Ability"
+    },
+    {
+      "name": "HelloWorld",
+      "value": "Hello World"
+    },
+    {
+      "name": "bjmusicserviceability_description",
+      "value": "hap sample empty service"
+    }
+  ]
+}

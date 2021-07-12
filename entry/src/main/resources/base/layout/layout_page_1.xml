@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DependentLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:background_element="$media:choose002">
+
+    <Button
+        ohos:id="$+id:choose_car_btn_2"
+        ohos:height="55vp"
+        ohos:width="110vp"
+        ohos:background_element="$media:choosebtnbg"
+        ohos:horizontal_center="true"
+        ohos:top_margin="430vp"
+        ohos:text="确认"
+        ohos:text_size="18fp"
+
+        />
+
+</DependentLayout>
