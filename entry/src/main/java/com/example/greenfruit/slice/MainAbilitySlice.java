@@ -16,6 +16,7 @@ import ohos.agp.components.Component;
 import ohos.agp.window.service.WindowManager;
 import ohos.bundle.ElementName;
 import ohos.data.distributed.user.SingleKvStore;
+import ohos.hiviewdfx.HiLogLabel;
 import ohos.multimodalinput.event.TouchEvent;
 
 

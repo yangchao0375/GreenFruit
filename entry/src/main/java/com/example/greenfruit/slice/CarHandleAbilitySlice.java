@@ -30,6 +30,7 @@ import ohos.data.distributed.user.SingleKvStore;
 import ohos.hiviewdfx.HiLog;
 import ohos.hiviewdfx.HiLogLabel;
 import ohos.multimodalinput.event.KeyEvent;
+import ohos.multimodalinput.event.MmiPoint;
 import ohos.multimodalinput.event.TouchEvent;
 import ohos.wifi.IpInfo;
 import ohos.wifi.WifiDevice;
@@ -46,7 +47,7 @@ import static ohos.agp.components.ComponentContainer.LayoutConfig.MATCH_PARENT;
 
 
 public class CarHandleAbilitySlice extends AbilitySlice {
-    private Button mBtnStop, mBtnStart;
+    private Button mBtnStop, mBtnStart,mBtnCamera;
     private String carIp = "";
     private int chooseCarNo = 0;
     private String phoneIP = "";
@@ -92,6 +93,7 @@ public class CarHandleAbilitySlice extends AbilitySlice {
                         if (!"".equals(carIp)) {
                             cmdMsg = new HashMap<>();
                             cmdMsg.put("cmd", "stop");
+                            mBtnCamera.setText("stop");
                             CommonTools.sendMsg(carIp, chooseCarNo, cmdMsg);
                         } else {
                             CommonTools.showConfirmTips(CarHandleAbilitySlice.this, "car's ip error!");
@@ -140,60 +142,73 @@ public class CarHandleAbilitySlice extends AbilitySlice {
 
         mBtnStop = (Button) findComponentById(ResourceTable.Id_btn_stop);
         mBtnStart = (Button) findComponentById(ResourceTable.Id_btn_start);
+        mBtnCamera=(Button) findComponentById(ResourceTable.Id_btn_camera);
         mBtnStart.setTouchEventListener(new Component.TouchEventListener() {
+
             @Override
             public boolean onTouchEvent(Component component, TouchEvent touchEvent) {
                 if (touchEvent.getAction() == TouchEvent.PRIMARY_POINT_DOWN) {
+
                     if (!"".equals(carIp) && chooseCarNo != 0) {
+
                         cmdMsg = new HashMap<>();
                         cmdMsg.put("cmd", "forward");
                         CommonTools.sendMsg(carIp, chooseCarNo, cmdMsg);
+
                     } else {
+
                         CommonTools.showConfirmTips(CarHandleAbilitySlice.this, "car's ip error!");
                     }
                 } else if (touchEvent.getAction() == TouchEvent.OTHER_POINT_DOWN) {
                     float x = touchEvent.getPointerPosition(1).getX();
                     float y = touchEvent.getPointerPosition(1).getY();
-                    System.out.println("x:" + x + " y:" + y);
+                    System.out.println(""+x);
                     //上
-                    if (x >= 1297 && x <= 1538 && y <= -178 && y >= -377) {
+                    if (x >= 1500 && x <= 1740 && y <= -178 && y >= -377) {
                         if (!"".equals(carIp) && chooseCarNo != 0) {
                             cmdMsg = new HashMap<>();
                             cmdMsg.put("cmd", "speedup");
                             CommonTools.sendMsg(carIp, chooseCarNo, cmdMsg);
+                            mBtnCamera.setText("speedup");
                         } else {
+
+                            System.out.println(""+x);
                             CommonTools.showConfirmTips(CarHandleAbilitySlice.this, "car's ip error!");
                         }
                     }
 
                     //下
-                    if (x >= 1297 && x <= 1538 && y >= 36 && y <= 135) {
+                    if (x >= 1500 && x <= 1740&& y >= 36 && y <= 135) {
                         if (!"".equals(carIp) && chooseCarNo != 0) {
                             cmdMsg = new HashMap<>();
                             cmdMsg.put("cmd", "backward");
                             CommonTools.sendMsg(carIp, chooseCarNo, cmdMsg);
+                            mBtnCamera.setText("backward");
                         } else {
                             CommonTools.showConfirmTips(CarHandleAbilitySlice.this, "car's ip error!");
                         }
                     }
 
                     //left
-                    if (x >= 1085 && x <= 1257 && y >= -226 && y <= -2) {
+                    if (x >= 1320 && x <=1540 && y >= -226 && y <= -2) {
                         if (!"".equals(carIp) && chooseCarNo != 0) {
+                            mBtnCamera.setText(""+x+""+y);
                             cmdMsg = new HashMap<>();
                             cmdMsg.put("cmd", "left");
                             CommonTools.sendMsg(carIp, chooseCarNo, cmdMsg);
+                            mBtnCamera.setText("left");
                         } else {
                             CommonTools.showConfirmTips(CarHandleAbilitySlice.this, "car's ip error!");
                         }
                     }
 
                     //right
-                    if (x >= 1567 && x <= 1758 && y >= -226 && y <= -2) {
+                    if (x >= 1800&& x <= 2040 && y >= -226 && y <= -2) {
                         if (!"".equals(carIp) && chooseCarNo != 0) {
                             cmdMsg = new HashMap<>();
                             cmdMsg.put("cmd", "right");
                             CommonTools.sendMsg(carIp, chooseCarNo, cmdMsg);
+                            mBtnCamera.setText("right");
                         } else {
                             CommonTools.showConfirmTips(CarHandleAbilitySlice.this, "car's ip error!");
                         }
@@ -201,7 +216,8 @@ public class CarHandleAbilitySlice extends AbilitySlice {
                 } else if (touchEvent.getAction() == TouchEvent.OTHER_POINT_UP) {
                     float x = touchEvent.getPointerPosition(1).getX();
                     float y = touchEvent.getPointerPosition(1).getY();
-                    if ((x >= 1297 && x <= 1538 && y <= -178 && y >= -377)) {
+//                    System.out.println(""+x+y);
+                    if ((x >= 1500 && x <= 1740 && y <= -178 && y >= -377)) {
                         if (!"".equals(carIp) && chooseCarNo != 0) {
                             cmdMsg = new HashMap<>();
                             cmdMsg.put("cmd", "speeddown");
@@ -209,9 +225,9 @@ public class CarHandleAbilitySlice extends AbilitySlice {
                         } else {
                             CommonTools.showConfirmTips(CarHandleAbilitySlice.this, "car's ip error!");
                         }
-                    } else if ((x >= 1297 && x <= 1538 && y >= 36 && y <= 135) ||
-                            (x >= 1085 && x <= 1257 && y >= -226 && y <= -2) ||
-                            (x >= 1567 && x <= 1758 && y >= -226 && y <= -2))
+                    } else if ((x >= 1500 && x <= 1740 && y >= 36 && y <= 135) ||
+                            (x >= 1320 && x <=1540  && y >= -226 && y <= -2) ||
+                            (x >= 1800&& x <= 2040  && y >= -226 && y <= -2))
                         if (!"".equals(carIp) && chooseCarNo != 0) {
                             cmdMsg = new HashMap<>();
                             cmdMsg.put("cmd", "forward");
@@ -230,10 +246,16 @@ public class CarHandleAbilitySlice extends AbilitySlice {
                 if (touchEvent.getAction() == TouchEvent.PRIMARY_POINT_DOWN ||
                         touchEvent.getAction() == TouchEvent.PRIMARY_POINT_UP) {
                     if (!"".equals(carIp)) {
+//                        float x = touchEvent.getPointerPosition(1).getX();
+//                        float y = touchEvent.getPointerPosition(1).getY();
+//                        mBtnCamera.setText(""+x+"     "+y);
                         cmdMsg = new HashMap<>();
                         cmdMsg.put("cmd", "stop");
                         CommonTools.sendMsg(carIp, chooseCarNo, cmdMsg);
                     } else {
+//                        float x = touchEvent.getPointerPosition(1).getX();
+//                        float y = touchEvent.getPointerPosition(1).getY();
+//                        mBtnCamera.setText(""+x+"     "+y);
                         CommonTools.showConfirmTips(CarHandleAbilitySlice.this, "car's ip error!");
                     }
                 }

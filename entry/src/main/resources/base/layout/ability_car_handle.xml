@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DependentLayout
-    ohos:id="$+id:car_control_screen"
+    ohos:id="$+id:car_handle_screen"
     xmlns:ohos="http://schemas.huawei.com/res/ohos"
     ohos:height="match_parent"
     ohos:width="match_parent"
-    ohos:background_element="$media:back_control"
-    >
+    ohos:background_element="$media:back_control">
 
 
     <Button
@@ -14,9 +13,9 @@
         ohos:width="80vp"
         ohos:align_parent_right="true"
         ohos:background_element="$media:up"
-        ohos:right_margin="100px"
+        ohos:right_margin="150vp"
         ohos:text=" "
-        ohos:top_margin="150vp"
+        ohos:top_margin="50vp"
         />
 
     <Button
@@ -25,29 +24,31 @@
         ohos:width="80vp"
         ohos:align_parent_right="true"
         ohos:background_element="$media:down"
-        ohos:right_margin="100px"
+        ohos:right_margin="150vp"
         ohos:text=" "
-        ohos:top_margin="250vp"
+        ohos:top_margin="150vp"
         />
 
     <Button
         ohos:id="$+id:btn_right"
         ohos:height="80vp"
         ohos:width="80vp"
+        ohos:align_parent_right="true"
         ohos:background_element="$media:right"
-        ohos:left_margin="600px"
+        ohos:right_margin="70vp"
         ohos:text=" "
-        ohos:top_margin="230vp"
+        ohos:top_margin="100vp"
         />
 
     <Button
         ohos:id="$+id:btn_left"
         ohos:height="80vp"
         ohos:width="80vp"
+        ohos:align_parent_right="true"
         ohos:background_element="$media:left"
+        ohos:right_margin="235vp"
         ohos:text=" "
-        ohos:top_margin="690px"
-        ohos:left_margin="180px"
+        ohos:top_margin="100vp"
         />
 
     <Button
@@ -56,66 +57,77 @@
         ohos:width="80vp"
         ohos:align_parent_left="true"
         ohos:background_element="$media:stop"
-        ohos:left_margin="130vp"
+        ohos:left_margin="60vp"
         ohos:text=" "
-        ohos:top_margin="150vp"
+        ohos:top_margin="80vp"
         />
 
+        <Button
+        ohos:id="$+id:btn_start"
+        ohos:height="80vp"
+        ohos:width="80vp"
+        ohos:align_parent_left="true"
+        ohos:background_element="$media:start"
+        ohos:left_margin="60vp"
+        ohos:text=" "
+        ohos:top_margin="180vp"
+        />
     <Button
         ohos:id="$+id:btn_action"
         ohos:height="60vp"
         ohos:width="60vp"
         ohos:align_parent_left="true"
         ohos:background_element="$media:action"
-        ohos:left_margin="80vp"
+        ohos:left_margin="10vp"
         ohos:text=" "
-        ohos:top_margin="110vp"
-        />
-    <Button
-        ohos:id="$+id:btn_camera_open"
-        ohos:height="60vp"
-        ohos:width="60vp"
-        ohos:align_parent_left="true"
-        ohos:background_element="$media:camera"
-        ohos:left_margin="200vp"
-        ohos:text=" "
-        ohos:top_margin="110vp"
+        ohos:top_margin="135vp"
         />
 
-        <Button
-
-        ohos:id="$+id:btn_start"
-        ohos:height="80vp"
-        ohos:width="80vp"
-        ohos:align_parent_left="true"
-        ohos:background_element="$media:start"
-        ohos:left_margin="130vp"
-
-        ohos:text=" "
-
-        ohos:top_margin="50vp"
-        />
     <Button
         ohos:id="$+id:btn_camera"
         ohos:height="200vp"
-        ohos:width="300vp"
+        ohos:width="220vp"
         ohos:align_parent_left="true"
         ohos:background_element="$graphic:background_white_radius_10"
-        ohos:left_margin="275vp"
+        ohos:left_margin="140vp"
         ohos:text="相机展示区域"
         ohos:text_font="30"
         ohos:top_margin="0vp"
         />
     <Button
+        ohos:id="$+id:btn_map"
+        ohos:height="100vp"
+        ohos:width="100vp"
+        ohos:align_parent_left="true"
+        ohos:background_element="$graphic:background_white_radius_10"
+        ohos:left_margin="360vp"
+        ohos:text="地图展示区域"
+        ohos:text_font="30"
+        ohos:top_margin="0vp"
+        />
+    <Button
+        ohos:id="$+id:btn_camera_open"
+        ohos:height="40vp"
+        ohos:width="40vp"
+        ohos:align_parent_left="true"
+        ohos:background_element="$media:camera"
+        ohos:text=" "
+            ohos:left_margin="230vp"
+            ohos:top_margin="210vp"
+
+        />
+
+
+    <Button
         ohos:id="$+id:btn_take_photo"
-        ohos:height="50vp"
-        ohos:width="50vp"
+        ohos:height="40vp"
+        ohos:width="40vp"
         ohos:align_parent_left="true"
         ohos:background_element="$media:play"
-        ohos:left_margin="1200px"
         ohos:text=" "
-        ohos:top_margin="420px"
 
+        ohos:left_margin="230vp"
+        ohos:top_margin="130vp"
         />
 
 </DependentLayout>
