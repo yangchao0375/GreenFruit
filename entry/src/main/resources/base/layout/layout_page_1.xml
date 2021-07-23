@@ -4,7 +4,14 @@
 
     ohos:height="match_parent"
     ohos:width="match_parent"
-    ohos:background_element="$media:choose002">
+    ohos:background_element="$media:choose">
+<Text
+    ohos:height="match_content"
+    ohos:width="match_content"
+    ohos:text="您已选择002号小车"
+    ohos:text_size="30vp"
+    ohos:top_margin="250vp"
+    ohos:horizontal_center="true"/>
 
     <Button
         ohos:id="$+id:choose_car_btn_2"
@@ -12,10 +19,9 @@
         ohos:width="110vp"
         ohos:background_element="$media:choosebtnbg"
         ohos:horizontal_center="true"
-        ohos:top_margin="430vp"
+        ohos:top_margin="480vp"
         ohos:text="确认"
         ohos:text_size="18fp"
-
         />
 
 </DependentLayout>

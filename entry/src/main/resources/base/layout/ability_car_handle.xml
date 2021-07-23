@@ -90,21 +90,14 @@
         ohos:align_parent_left="true"
         ohos:background_element="$graphic:background_white_radius_10"
         ohos:left_margin="140vp"
-        ohos:text="相机展示区域"
+        ohos:text="相机预览界面"
         ohos:text_font="30"
         ohos:top_margin="0vp"
         />
-    <Button
-        ohos:id="$+id:btn_map"
-        ohos:height="100vp"
-        ohos:width="100vp"
-        ohos:align_parent_left="true"
-        ohos:background_element="$graphic:background_white_radius_10"
-        ohos:left_margin="360vp"
-        ohos:text="地图展示区域"
-        ohos:text_font="30"
-        ohos:top_margin="0vp"
-        />
+
+
+
+
     <Button
         ohos:id="$+id:btn_camera_open"
         ohos:height="40vp"
@@ -112,22 +105,33 @@
         ohos:align_parent_left="true"
         ohos:background_element="$media:camera"
         ohos:text=" "
-            ohos:left_margin="230vp"
-            ohos:top_margin="210vp"
-
-        />
-
-
-    <Button
-        ohos:id="$+id:btn_take_photo"
-        ohos:height="40vp"
-        ohos:width="40vp"
-        ohos:align_parent_left="true"
-        ohos:background_element="$media:play"
-        ohos:text=" "
-
         ohos:left_margin="230vp"
-        ohos:top_margin="130vp"
+        ohos:top_margin="210vp"
+
         />
+    <Button
+        ohos:id="$+id:btn_map"
+        ohos:height="100vp"
+        ohos:width="100vp"
+        ohos:align_parent_left="true"
+        ohos:background_element="$graphic:background_white_radius_10"
+        ohos:left_margin="400vp"
+        ohos:text="地图界面"
+        ohos:text_font="30"
+        ohos:top_margin="0vp"
+        />
+
+
+<!--    <Button-->
+<!--        ohos:id="$+id:img_map_point"-->
+<!--        ohos:height="10vp"-->
+<!--        ohos:width="10vp"-->
+<!--        ohos:background_element="$media:map_point"-->
+<!--        ohos:left_margin="410vp"-->
+<!--        ohos:top_margin="50vp"-->
+<!--        ohos:align_parent_left="true"-->
+<!--        />-->
+
+
 
 </DependentLayout>

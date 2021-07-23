@@ -36,8 +36,9 @@ public class ChooseCarAbilitySlice extends AbilitySlice {
     private PageSlider view_pager;
     private List<Component> pageviews;
     private SingleKvStore singleKvStore = null;
-    String car001 = "";
-    String car002 = "";
+    String car28882
+            = "";
+    String car28883 = "";
     String loaclDeviceId = "";
     boolean playModule = false;
 
@@ -80,9 +81,10 @@ public class ChooseCarAbilitySlice extends AbilitySlice {
                             if(!"---".equals(msg) && CommonTools.isForeground(ChooseCarAbilitySlice.this)){
                                 //setWifishowConfirmTips(ChooseCarAbilitySlice.this,"对手已经选择"+msg+"号车！"+ view_pager.getName() + ", "+ view_pager.getCurrentPage());
                                 CommonTools.showTip(ChooseCarAbilitySlice.this,"对手选择了"+msg+"号小车！",2000);
-                                if(msg.equals("car001") && view_pager.getCurrentPage()==0) {
+                                if(msg.equals("car28882" +
+                                        "") && view_pager.getCurrentPage()==0) {
                                     view_pager.setCurrentPage(1);
-                                }else if(msg.equals("car002") && view_pager.getCurrentPage()==1){
+                                }else if(msg.equals("car28883") && view_pager.getCurrentPage()==1){
                                     view_pager.setCurrentPage(0);
                                 }
 
@@ -93,32 +95,42 @@ public class ChooseCarAbilitySlice extends AbilitySlice {
             });
 
             try {
-                car001 = singleKvStore.getString("car001");
-                System.out.println("读取到car001：" + car001);
+                car28882
+                        = singleKvStore.getString("car28882" +
+                        "");
+                System.out.println("读取到car28882" +
+                        "：" + car28882
+                );
             } catch (Exception e) {
-                System.out.println("读取到car001error");
+                System.out.println("读取到car28882" +
+                        "error");
             }
             try {
-                car002 = singleKvStore.getString("car002");
-                System.out.println("读取到car002：" + car002);
+                car28883 = singleKvStore.getString("car28883");
+                System.out.println("读取到car28883：" + car28883);
             } catch (Exception e) {
-                System.out.println("读取到car002error");
+                System.out.println("读取到car28883error");
             }
-            //读写数据库里的car001和car002
-            if ("".equals(car001) && "".equals(car002)) {
+            //读写数据库里的car28882
+            // 和car28883
+            if ("".equals(car28882
+            ) && "".equals(car28883)) {
                 //将view装入数组
                 pageviews.add(view0);
                 pageviews.add(view1);
-            } else if (car001.equals(loaclDeviceId)) {
+            } else if (car28882
+                    .equals(loaclDeviceId)) {
                 pageviews.clear();
                 pageviews.add(view0);
-            } else if (car002.equals(loaclDeviceId)) {
+            } else if (car28883.equals(loaclDeviceId)) {
                 pageviews.clear();
                 pageviews.add(view1);
-            } else if (!car001.equals(loaclDeviceId) && !"".equals(car001)) {
+            } else if (!car28882
+                    .equals(loaclDeviceId) && !"".equals(car28882
+            )) {
                 pageviews.clear();
                 pageviews.add(view1);
-            } else if (!car002.equals(loaclDeviceId) && !"".equals(car002)) {
+            } else if (!car28883.equals(loaclDeviceId) && !"".equals(car28883)) {
                 pageviews.clear();
                 pageviews.add(view0);
             }
@@ -131,8 +143,10 @@ public class ChooseCarAbilitySlice extends AbilitySlice {
         chooseCarBtn1 = (Button) view0.findComponentById(ResourceTable.Id_choose_car_btn_1);
         chooseCarBtn1.setClickedListener(component -> {
             if (playModule) {
-                singleKvStore.putString("car001", loaclDeviceId);
-                System.out.println("写入car001：" + loaclDeviceId);
+                singleKvStore.putString("car28882" +
+                        "", loaclDeviceId);
+                System.out.println("写入car28882" +
+                        "：" + loaclDeviceId);
             }
             //跳转setwifi
             Intent setwifiIntent = new Intent();
@@ -141,14 +155,15 @@ public class ChooseCarAbilitySlice extends AbilitySlice {
                     "com.example.greenfruit",
                     "com.example.greenfruit.SetCarWifiAbility"
             ));
-            setwifiIntent.setParam("chooseCarNo", 001);
+            setwifiIntent.setParam("chooseCarNo", 28882
+            );
             startAbility(setwifiIntent);
         });
         chooseCarBtn2 = (Button) view1.findComponentById(ResourceTable.Id_choose_car_btn_2);
         chooseCarBtn2.setClickedListener(component -> {
             if (playModule) {
-                singleKvStore.putString("car002", loaclDeviceId);
-                System.out.println("写入car002：" + loaclDeviceId);
+                singleKvStore.putString("car28883", loaclDeviceId);
+                System.out.println("写入car28883：" + loaclDeviceId);
             }
             //跳转setwifi
             Intent setwifiIntent = new Intent();
@@ -157,7 +172,7 @@ public class ChooseCarAbilitySlice extends AbilitySlice {
                     "com.example.greenfruit",
                     "com.example.greenfruit.SetCarWifiAbility"
             ));
-            setwifiIntent.setParam("chooseCarNo", 002);
+            setwifiIntent.setParam("chooseCarNo", 28883);
             startAbility(setwifiIntent);
         });
         flushPageSlider();
@@ -203,8 +218,9 @@ public class ChooseCarAbilitySlice extends AbilitySlice {
         confirm.setClickedListener(c -> {
             toastDialog.hide();
             if (playModule) {
-                singleKvStore.delete("car001");
-                singleKvStore.delete("car002");
+                singleKvStore.delete("car28882" +
+                        "");
+                singleKvStore.delete("car28883");
             }
         });
         toastDialog.setSize(MATCH_PARENT, MATCH_CONTENT);

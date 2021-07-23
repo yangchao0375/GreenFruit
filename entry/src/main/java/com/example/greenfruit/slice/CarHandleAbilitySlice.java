@@ -1,6 +1,6 @@
 /*Author：杨超
 Date：2021-07-09
-Update:2021-07-10
+Update:2021-07-19
 Project：绿小果集群小车
 Version：1.1.1
  */
@@ -10,10 +10,12 @@ package com.example.greenfruit.slice;
 import com.example.greenfruit.ResourceTable;
 
 
+import com.example.greenfruit.TakePhotoAbility;
 import com.example.greenfruit.uitls.CommonTools;
 import com.example.greenfruit.uitls.DBUtils;
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.content.Intent;
+import ohos.aafwk.content.Operation;
 import ohos.agp.components.Button;
 import ohos.agp.components.Component;
 import ohos.agp.components.LayoutScatter;
@@ -22,6 +24,7 @@ import ohos.agp.utils.LayoutAlignment;
 import ohos.agp.window.dialog.CommonDialog;
 import ohos.agp.window.service.WindowManager;
 import ohos.app.AbilityContext;
+import ohos.bundle.ElementName;
 import ohos.data.distributed.common.ChangeNotification;
 import ohos.data.distributed.common.Entry;
 import ohos.data.distributed.common.KvStoreObserver;
@@ -47,7 +50,7 @@ import static ohos.agp.components.ComponentContainer.LayoutConfig.MATCH_PARENT;
 
 
 public class CarHandleAbilitySlice extends AbilitySlice {
-    private Button mBtnStop, mBtnStart,mBtnCamera;
+    private Button mBtnStop, mBtnStart,mBtnCamera,mBtnCameraOpen;
     private String carIp = "";
     private int chooseCarNo = 0;
     private String phoneIP = "";
@@ -87,7 +90,7 @@ public class CarHandleAbilitySlice extends AbilitySlice {
                             msg = insertEntry.getValue().getString();
                         }
                         if(!"---".equals(msg) && count < 1){
-                            showGameOverConfirmTips(CarHandleAbilitySlice.this,"获胜选手"+msg+"号车！");
+//                            showGameOverConfirmTips(CarHandleAbilitySlice.this,"获胜选手"+msg+"号车！");
                             count++;
                         }
                         if (!"".equals(carIp)) {
@@ -143,6 +146,7 @@ public class CarHandleAbilitySlice extends AbilitySlice {
         mBtnStop = (Button) findComponentById(ResourceTable.Id_btn_stop);
         mBtnStart = (Button) findComponentById(ResourceTable.Id_btn_start);
         mBtnCamera=(Button) findComponentById(ResourceTable.Id_btn_camera);
+        mBtnCameraOpen= (Button) findComponentById(ResourceTable.Id_btn_camera_open);
         mBtnStart.setTouchEventListener(new Component.TouchEventListener() {
 
             @Override
@@ -162,7 +166,10 @@ public class CarHandleAbilitySlice extends AbilitySlice {
                 } else if (touchEvent.getAction() == TouchEvent.OTHER_POINT_DOWN) {
                     float x = touchEvent.getPointerPosition(1).getX();
                     float y = touchEvent.getPointerPosition(1).getY();
+                    System.out.println("==================================");
                     System.out.println(""+x);
+                    //Author:杨超
+                    //Update：2021/7/19
                     //上
                     if (x >= 1500 && x <= 1740 && y <= -178 && y >= -377) {
                         if (!"".equals(carIp) && chooseCarNo != 0) {
@@ -172,13 +179,13 @@ public class CarHandleAbilitySlice extends AbilitySlice {
                             mBtnCamera.setText("speedup");
                         } else {
 
-                            System.out.println(""+x);
+
                             CommonTools.showConfirmTips(CarHandleAbilitySlice.this, "car's ip error!");
                         }
                     }
 
                     //下
-                    if (x >= 1500 && x <= 1740&& y >= 36 && y <= 135) {
+                    if (x >= 1500 && x <= 1740&& y >= -100 && y <= 175) {
                         if (!"".equals(carIp) && chooseCarNo != 0) {
                             cmdMsg = new HashMap<>();
                             cmdMsg.put("cmd", "backward");
@@ -246,6 +253,8 @@ public class CarHandleAbilitySlice extends AbilitySlice {
                 if (touchEvent.getAction() == TouchEvent.PRIMARY_POINT_DOWN ||
                         touchEvent.getAction() == TouchEvent.PRIMARY_POINT_UP) {
                     if (!"".equals(carIp)) {
+                        //Author：杨超
+                        //UpDate：2021-07-19
 //                        float x = touchEvent.getPointerPosition(1).getX();
 //                        float y = touchEvent.getPointerPosition(1).getY();
 //                        mBtnCamera.setText(""+x+"     "+y);
@@ -253,6 +262,8 @@ public class CarHandleAbilitySlice extends AbilitySlice {
                         cmdMsg.put("cmd", "stop");
                         CommonTools.sendMsg(carIp, chooseCarNo, cmdMsg);
                     } else {
+                        //Author：杨超
+                        //UpDate：2021-07-19
 //                        float x = touchEvent.getPointerPosition(1).getX();
 //                        float y = touchEvent.getPointerPosition(1).getY();
 //                        mBtnCamera.setText(""+x+"     "+y);
@@ -261,8 +272,32 @@ public class CarHandleAbilitySlice extends AbilitySlice {
                 }
                 return true;
             }
+
         });
+        //相机打开,页面跳转
+        //Author：杨超
+        //UpDate：2021-07-19
+        mBtnCameraOpen.setTouchEventListener(new Component.TouchEventListener() {
+            @Override
+            public boolean onTouchEvent(Component component, TouchEvent touchEvent) {
+
+                Intent CameraIntent = new Intent();
+                CameraIntent.setElement(new ElementName(
+                        "",
+                        getBundleName(),
+                        "com.example.greenfruit.TakePhotoAbility"
+                ));
+                startAbility(CameraIntent);
+//                mBtnCamera.setText("相机打开");
+                return false;
+            }
+        });
+
     }
+
+
+
+
 
     class GetCarGameOverInfo implements Runnable {
         @Override

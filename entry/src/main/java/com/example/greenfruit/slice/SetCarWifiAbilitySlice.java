@@ -39,7 +39,7 @@ public class SetCarWifiAbilitySlice extends AbilitySlice {
             @Override
             public void onClick(Component component) {
                 Intent ctrlCarIntent = new Intent();
-                ctrlCarIntent.setElement(new ElementName("", "com.example.greenfruit", ".CtrlCarAbility"));
+                ctrlCarIntent.setElement(new ElementName("", getBundleName(), ".CtrlCarAbility"));
                 if (intent != null) {
                     chooseCarNo = intent.getIntParam("chooseCarNo", 0);
                     ctrlCarIntent.setParam("chooseCarNo", chooseCarNo);

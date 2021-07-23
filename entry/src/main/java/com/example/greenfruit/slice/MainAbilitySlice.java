@@ -1,6 +1,6 @@
 /*Author：杨超
 Date：2021-07-09
-Update:2021-07-10
+Update:2021-07-21
 Project：绿小果集群小车
 Version：1.1.1
  */
@@ -19,61 +19,71 @@ import ohos.data.distributed.user.SingleKvStore;
 import ohos.hiviewdfx.HiLogLabel;
 import ohos.multimodalinput.event.TouchEvent;
 
+import static java.lang.Thread.sleep;
 
 
 public class MainAbilitySlice extends AbilitySlice {
-    private Component chooseModeBtn;
+    private Component chooseManualModeBtn,chooseAutomaticModeBtn;
     private Intent playerIntent = new Intent();
+    private Intent startIntent=new Intent();
 
     @Override
     public void onStart(Intent intent) {
         super.onStart(intent);
         getWindow().addFlags(WindowManager.LayoutConfig.MARK_TRANSLUCENT_STATUS);
+//        super.setUIContent(ResourceTable.Layout_ability_start);
+//        startIntent.setElement(new ElementName(
+//                "",
+//                getBundleName(),
+//                ".startAbility"
+//        ));
+//        startAbility(startIntent);
+
         super.setUIContent(ResourceTable.Layout_ability_main);
         playerIntent.setElement(new ElementName(
                 "",
-                "com.example.greenfruit",
-                "com.example.greenfruit.BJmusicServiceAbility"
+                getBundleName(),
+                ".BJmusicServiceAbility"
         ));
         startAbility(playerIntent);
 
-
-        chooseModeBtn = findComponentById(ResourceTable.Id_choose_mode_btn);
-        chooseModeBtn.setTouchEventListener(new Component.TouchEventListener() {
+//Author：杨超
+//Update:2021-07-21
+//按钮修改
+        chooseManualModeBtn = findComponentById(ResourceTable.Id_manual_mode_btn);
+        chooseAutomaticModeBtn = findComponentById(ResourceTable.Id_automatic_mode_btn);
+        chooseManualModeBtn.setClickedListener(new Component.ClickedListener() {
             @Override
-            public boolean onTouchEvent(Component component, TouchEvent touchEvent) {
-                if(TouchEvent.PRIMARY_POINT_DOWN == touchEvent.getAction()){
-                    //获取触屏点的位置
-                    float x = touchEvent.getPointerPosition(0).getX();
-                    float y = touchEvent.getPointerPosition(0).getY();
-                    Intent ccIntent = new Intent();
-                    ccIntent.setElement(new ElementName("",
-                            "com.example.greenfruit",
-                            ".ChooseCarAbility"));
-                    //手动模式
-                    if(x>=234 && x<=557 && y>=93 && y<=254 ){
-                        ccIntent.setParam("playModule",false);
-                        startAbility(ccIntent);
-                        //打开分布式数据库
-                       SingleKvStore singleKvStore1 = DBUtils.initKvStore(MainAbilitySlice.this, "raceDB");
-                       DBUtils.deleteKvStore("raceDB");
-                        SingleKvStore singleKvStore2 = DBUtils.initKvStore(MainAbilitySlice.this, "raceGameOverDB");
-                        DBUtils.deleteKvStore("raceGameOverDB");
-                    }
-
-                    //自动模式
-                    if(x>=272 && x<=607 && y>=396 && y<=539 ){
-                        ccIntent.setParam("playModule",true);
-                        startAbility(ccIntent);
-                    }
-
-                }
-
-                return true;
+            public void onClick(Component component) {
+                Intent MIntent = new Intent();
+                MIntent.setElement(new ElementName("",
+                        getBundleName(),
+                        ".ChooseCarAbility"));
+                MIntent.setParam("playModule", false);
+                startAbility(MIntent);
+                //打开分布式数据库
+                SingleKvStore singleKvStore1 = DBUtils.initKvStore(MainAbilitySlice.this, "raceDB");
+                DBUtils.deleteKvStore("raceDB");
+                SingleKvStore singleKvStore2 = DBUtils.initKvStore(MainAbilitySlice.this, "raceGameOverDB");
+                DBUtils.deleteKvStore("raceGameOverDB");
             }
-        });
 
+        });
+        chooseAutomaticModeBtn.setClickedListener(new Component.ClickedListener() {
+            @Override
+            public void onClick(Component component) {
+                Intent MIntent = new Intent();
+                MIntent.setElement(new ElementName("",
+                        getBundleName(),
+                        ".ChooseCarAbility"));
+                MIntent.setParam("playModule", true);
+                startAbility(MIntent);
+
+            }
+
+        });
     }
+
 
 
 
@@ -96,3 +106,4 @@ public class MainAbilitySlice extends AbilitySlice {
 
 
 }
+

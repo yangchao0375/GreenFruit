@@ -1,18 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DependentLayout
     xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:id="$+id:handle"
     ohos:height="match_parent"
     ohos:width="match_parent"
-    ohos:background_element="$media:bjimg">
-    <DependentLayout
-        ohos:id="$+id:choose_mode_btn"
-        ohos:height="204vp"
-        ohos:width="260vp"
-        ohos:background_element="$media:startbtn"
-        ohos:center_in_parent="true">
-    </DependentLayout>
+    ohos:background_element="$media:background">
+    <Button
+        ohos:id="$+id:manual_mode_btn"
+        ohos:height="80vp"
+        ohos:width="160vp"
+        ohos:background_element="$media:choosebtnbg"
+        ohos:top_margin="145vp"
+        ohos:text="手动模式"
+        ohos:text_size="30fp"
+        ohos:horizontal_center="true"
+        ohos:text_color="#fff"
+        >
+    </Button>
+    <Button
+        ohos:below="$id:manual_mode_btn"
+        ohos:id="$+id:automatic_mode_btn"
+        ohos:height="90vp"
+        ohos:width="160vp"
+        ohos:background_element="$media:choosebtnbg"
+        ohos:top_margin="200vp"
+        ohos:text="自动模式"
+        ohos:text_size="30fp"
+        ohos:horizontal_center="true"
+        ohos:text_color="#fff"
+        >
+    </Button>
     <Checkbox
-        ohos:below="$id:choose_mode_btn"
+        ohos:below="$id:automatic_mode_btn"
         ohos:id="$+id:robotic_arm1"
         ohos:height="match_content"
         ohos:width="match_content"
@@ -21,8 +40,9 @@
         ohos:text_size="18fp"
         ohos:horizontal_center="true"
         ohos:text_color="#fff"
-        ohos:text_color_on="yellow"
+        ohos:text_color_on="white"
         ohos:text_color_off="#000000"
+
         />
     <Checkbox
         ohos:below="$+id:robotic_arm1"
@@ -34,8 +54,9 @@
         ohos:text_size="18fp"
         ohos:horizontal_center="true"
         ohos:text_color="#fff"
-        ohos:text_color_on="yellow"
+        ohos:text_color_on="white"
         ohos:text_color_off="#000000"
+
         />
     <Checkbox
         ohos:below="$+id:robotic_arm2"
@@ -47,8 +68,9 @@
         ohos:text_size="18fp"
         ohos:horizontal_center="true"
         ohos:text_color="#fff"
-        ohos:text_color_on="yellow"
+        ohos:text_color_on="white"
         ohos:text_color_off="#000000"
+
         />
     <Checkbox
         ohos:below="$+id:robotic_arm3"
@@ -60,7 +82,9 @@
         ohos:text_size="18fp"
         ohos:horizontal_center="true"
         ohos:text_color="#fff"
-        ohos:text_color_on="yellow"
+        ohos:text_color_on="white"
         ohos:text_color_off="#000000"
+
         />
+
 </DependentLayout>

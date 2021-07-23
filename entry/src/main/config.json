@@ -11,23 +11,23 @@
       "target": 5,
       "compatible": 4,
       "releaseType": "Beta1"
-
-
-
-
     }
   },
   "deviceConfig": {},
   "module": {
     "package": "com.example.greenfruit",
     "name": ".MyApplication",
+    "reqCapabilities": [
+      "video_support"
+    ],
     "deviceType": [
       "phone"
     ],
     "distro": {
       "deliveryWithInstall": true,
       "moduleName": "entry",
-      "moduleType": "entry"
+      "moduleType": "entry",
+      "installationFree": false
     },
     "abilities": [
       {
@@ -84,7 +84,6 @@
         "description": "$string:carhandleability_description",
         "label": "$string:app_name",
         "type": "page",
-
         "launchType": "standard",
         "metaData": {
           "customizeData": [
@@ -137,6 +136,21 @@
         "icon": "$media:icon",
         "description": "$string:bjmusicserviceability_description",
         "type": "service"
+      },
+      {
+        "name": ".TakePhotoAbility",
+        "type": "page",
+        "visible": true,
+        "launchType": "standard"
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.example.greenfruit.startAbility",
+        "icon": "$media:icon",
+        "description": "$string:startability_description",
+        "label": "$string:entry_startAbility",
+        "type": "page",
+        "launchType": "standard"
       }
     ],
     "reqPermissions": [
@@ -163,6 +177,21 @@
       },
       {
         "name": "ohos.permission.GET_WIFI_INFO"
+      },
+      {
+        "name": "ohos.permission.CAMERA"
+      },
+      {
+        "name": "ohos.permission.WRITE_USER_STORAGE"
+      },
+      {
+        "name": "ohos.permission.READ_USER_STORAGE"
+      },
+      {
+        "name": "ohos.permission.MICROPHONE"
+      },
+      {
+        "name": "ohos.permission.LOCATION"
       }
     ]
   }

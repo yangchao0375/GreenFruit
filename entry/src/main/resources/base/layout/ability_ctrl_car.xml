@@ -3,14 +3,14 @@
     xmlns:ohos="http://schemas.huawei.com/res/ohos"
     ohos:height="match_parent"
     ohos:width="match_parent"
-    ohos:background_element="$media:back_makesure">
+    ohos:background_element="$media:background">
 
     <TextField
         ohos:id="$+id:car_ip_textfield"
         ohos:height="40vp"
         ohos:width="250vp"
         ohos:layout_alignment="horizontal_center"
-        ohos:top_margin="200vp"
+        ohos:top_margin="300vp"
         ohos:text_size="20fp"
         ohos:text_alignment="vertical_center"
         ohos:background_element="$graphic:background_white_radius_10"
@@ -28,7 +28,7 @@
         ohos:width="110vp"
         ohos:text="确认"
         ohos:background_element="$media:choosebtnbg"
-        ohos:top_margin="210vp"
+        ohos:top_margin="100vp"
         ohos:text_size="18fp"
         ohos:horizontal_center="true"
         ohos:text_color="#fff"/>

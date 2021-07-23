@@ -31,6 +31,18 @@
     {
       "name": "bjmusicserviceability_description",
       "value": "hap sample empty service"
+    },
+    {
+      "name": "startability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "startability_HelloWorld",
+      "value": "Hello World"
+    },
+    {
+      "name": "entry_startAbility",
+      "value": "entry_startAbility"
     }
   ]
 }
